@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jana kod QR daripada pautan atau teks, sesuaikan warna dan muat turun PNG.">
+  <title>AI2Z QR Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header><div class="wrap brand"><span class="mark" aria-hidden="true">▦</span> AI2Z <span>QR Studio</span></div></header>
+  <main class="wrap">
+    <h1>Jana kod QR.</h1>
+    <p class="intro">Tukar pautan atau teks kepada kod QR dan muat turun sebagai PNG.</p>
+    <div class="studio">
+      <form id="editor" class="panel" novalidate>
+        <h2>Tetapan kod QR</h2>
+        <fieldset>
+          <legend>Jenis kandungan</legend>
+          <div class="switch">
+            <label><input type="radio" name="mode" value="url" checked><span>Pautan</span></label>
+            <label><input type="radio" name="mode" value="text"><span>Teks</span></label>
+          </div>
+        </fieldset>
+        <label for="content" id="content-label">URL laman web</label>
+        <textarea id="content" rows="4" required aria-describedby="feedback" placeholder="https://contoh.my"></textarea>
+        <p id="feedback" role="status"></p>
+        <fieldset>
+          <legend>Warna</legend>
+          <div class="colors">
+            <label><input type="color" id="ink" value="#16132b"> Kod QR</label>
+            <label><input type="color" id="paper" value="#ffffff"> Latar</label>
+          </div>
+        </fieldset>
+        <button type="reset">Tetapkan semula</button>
+      </form>
+      <section class="panel preview" aria-labelledby="preview-title">
+        <h2 id="preview-title">Pratonton langsung</h2>
+        <div class="stage">
+          <span id="empty">Kod QR akan muncul di sini.</span>
+          <canvas id="qr" hidden role="img" aria-label="Pratonton kod QR"></canvas>
+        </div>
+        <button type="button" id="download" disabled>Muat turun PNG</button>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
